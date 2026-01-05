@@ -1,0 +1,30 @@
+# fuel-calc Development Guidelines
+
+Auto-generated from all feature plans. Last updated: 2026-01-05
+
+## Active Technologies
+
+- JavaScript (ES6+), HTML5, CSS3 + None (native browser APIs only) (001-fuel-calculator)
+
+## Project Structure
+
+```text
+backend/
+frontend/
+tests/
+```
+
+## Commands
+
+npm test && npm run lint
+
+## Code Style
+
+JavaScript (ES6+), HTML5, CSS3: Follow standard conventions
+
+## Recent Changes
+
+- 001-fuel-calculator: Added JavaScript (ES6+), HTML5, CSS3 + None (native browser APIs only)
+
+<!-- MANUAL ADDITIONS START -->
+<!-- MANUAL ADDITIONS END -->
