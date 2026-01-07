@@ -1,0 +1,44 @@
+/* Component-specific styles */
+
+/* Additional component styles are defined within each component's Shadow DOM */
+/* This file can be used for shared component styles if needed */
+
+/* Ensure components are properly displayed */
+fuel-calculator,
+race-input-form,
+stint-results,
+pit-lap-slider {
+  display: block;
+}
+
+/* Accessibility improvements */
+*:focus-visible {
+  outline: 2px solid var(--color-border-focus, #2563eb);
+  outline-offset: 2px;
+}
+
+/* Ensure touch targets meet minimum size */
+button,
+input[type="range"],
+.mode-option {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --color-border: #000000;
+    --color-text: #000000;
+    --color-bg: #ffffff;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
