@@ -164,7 +164,16 @@ class StintResults extends HTMLElement {
   }
 
   updateDisplay() {
+    // Ensure shadow DOM is ready
+    if (!this.shadowRoot) {
+      return;
+    }
+    
     const content = this.shadowRoot.querySelector('#results-content');
+    
+    if (!content) {
+      return;
+    }
     
     if (!this.stints || this.stints.length === 0) {
       content.innerHTML = `

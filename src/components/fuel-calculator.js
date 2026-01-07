@@ -4,6 +4,8 @@
  */
 
 import { calculateStints, calculateOptimalPitStrategy, recalculateStints, validateConfiguration } from '../services/fuel-calculator.js';
+import './race-input-form.js';
+import './stint-results.js';
 
 class FuelCalculator extends HTMLElement {
   constructor() {
@@ -73,17 +75,25 @@ class FuelCalculator extends HTMLElement {
   }
 
   attachEventListeners() {
-    const form = this.shadowRoot.querySelector('race-input-form');
-    const results = this.shadowRoot.querySelector('stint-results');
-    
-    // Listen for form submission
-    form.addEventListener('form-submit', (e) => {
-      this.handleFormSubmit(e.detail.configuration);
-    });
-    
-    // Listen for pit lap changes
-    results.addEventListener('pit-lap-change', (e) => {
-      this.handlePitLapChange(e.detail.pitIndex, e.detail.lap);
+    // Use requestAnimationFrame to ensure custom elements are fully upgraded
+    requestAnimationFrame(() => {
+      const form = this.shadowRoot.querySelector('race-input-form');
+      const results = this.shadowRoot.querySelector('stint-results');
+      
+      if (!form || !results) {
+        console.error('Failed to find required child components');
+        return;
+      }
+      
+      // Listen for form submission
+      form.addEventListener('form-submit', (e) => {
+        this.handleFormSubmit(e.detail.configuration);
+      });
+      
+      // Listen for pit lap changes
+      results.addEventListener('pit-lap-change', (e) => {
+        this.handlePitLapChange(e.detail.pitIndex, e.detail.lap);
+      });
     });
   }
 
