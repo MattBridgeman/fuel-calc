@@ -1,7 +1,11 @@
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
+// Use /fuel-calc/ base path for GitHub Pages, / for local development
+const base = process.env.CI ? '/fuel-calc/' : '/';
+
 export default defineConfig({
+  base,
   build: {
     outDir: 'dist',
     sourcemap: true,
@@ -21,7 +25,7 @@ export default defineConfig({
         theme_color: '#ffffff',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: '/',
+        start_url: base,
         icons: [
           {
             src: 'icons/icon-192.png',
