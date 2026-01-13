@@ -33,6 +33,13 @@ class RaceInputForm extends HTMLElement {
           width: 100%;
         }
         
+        html {
+          box-sizing: border-box;
+        }
+        *, *:before, *:after {
+          box-sizing: border-box;
+        }
+        
         .form-container {
           background: var(--color-bg, #ffffff);
           border-radius: var(--border-radius-lg, 0.75rem);
